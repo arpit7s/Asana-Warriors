@@ -1,0 +1,64 @@
+/* Navbar container */
+.navbar {
+    background-color: #1a202c; /* gray-900 */
+    color: white;
+    padding: 1rem; /* p-4 */
+  }
+  
+  /* Centered content wrapper */
+  .navbar .container {
+    max-width: 112rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo styles */
+  .navbar .logo {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold;
+  }
+  
+  /* Navbar links container */
+  .navbar .links {
+    display: flex;
+    gap: 1.5rem; /* space-x-6 */
+  }
+  
+  /* Navbar links styles */
+  .navbar .link {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s ease;
+  }
+  
+  .navbar .link:hover {
+    color: #e2e8f0; /* hover:text-gray-400 */
+  }
+  
+  /* Active link styles */
+  .navbar .link.active {
+    color: #edf2f7; /* text-gray-300 */
+    font-weight: bold;
+    border-bottom: 2px solid #edf2f7; /* underline effect */
+  }
+  
+  /* Mobile menu toggle button */
+  .navbar .mobile-menu {
+    display: none;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    /* Show mobile menu on smaller screens */
+    .navbar .links {
+      display: none; /* hidden md:flex */
+    }
+  
+    .navbar .mobile-menu {
+      display: block;
+    }
+  }
+  
