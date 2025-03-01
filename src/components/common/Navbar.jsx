@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { auth } from "../../Firebase/firebaseConfig"; 
 import "./Navbar.css";
+
 const Navbar = () => {
+    const [user, setUser] = useState(null);
+
+    // Monitor authentication state
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user); 
+            } else {
+                setUser(null); 
+            }
+        });
+
+        
+        return () => unsubscribe();
+    }, []);
+
+    // Function to handle logout
+    const handleLogout = () => {
+        auth.signOut()
+            .then(() => {
+                console.log("User logged out");
+            })
+            .catch((error) => {
+                console.error("Error logging out:", error);
+            });
+    };
+
     return (
         <nav className="navbar">
             <div className="container">
@@ -16,12 +45,22 @@ const Navbar = () => {
                     <NavLink to="/contact" className="link" activeClassName="active">
                         Contact
                     </NavLink>
-                    <NavLink to="/login" className="link" activeClassName="active">
-                        Login
-                    </NavLink>
-                    <NavLink to="/register" className="link" activeClassName="active">
-                        Register
-                    </NavLink>
+
+                    {/* Conditionally render Login/Register or Logout */}
+                    {!user ? (
+                        <>
+                            <NavLink to="/login" className="link" activeClassName="active">
+                                Login
+                            </NavLink>
+                            <NavLink to="/register" className="link" activeClassName="active">
+                                Register
+                            </NavLink>
+                        </>
+                    ) : (
+                        <button className="link" onClick={handleLogout}>
+                            Logout
+                        </button>
+                    )}
                 </div>
 
                 <div className="mobile-menu">

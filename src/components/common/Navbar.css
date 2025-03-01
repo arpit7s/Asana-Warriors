@@ -1,64 +1,149 @@
-/* Navbar container */
+/* Navbar.css - Enhanced styling for Asana Warriors */
+
 .navbar {
-    background-color: #1a202c; /* gray-900 */
-    color: white;
-    padding: 1rem; /* p-4 */
+  background: linear-gradient(135deg, #7f5a83 0%, #0d324d 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link.active {
+  color: white;
+  font-weight: 600;
+}
+
+.link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+button.link {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+button.link:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #0d324d;
+    padding: 1rem 0;
+    gap: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Centered content wrapper */
-  .navbar .container {
-    max-width: 112rem; /* max-w-7xl */
-    margin-left: auto;
-    margin-right: auto;
+
+  .links.active {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
-  
-  /* Logo styles */
-  .navbar .logo {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: bold;
+
+  .link {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 0;
   }
-  
-  /* Navbar links container */
-  .navbar .links {
-    display: flex;
-    gap: 1.5rem; /* space-x-6 */
+
+  .link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
   }
-  
-  /* Navbar links styles */
-  .navbar .link {
-    text-decoration: none;
-    color: white;
-    transition: color 0.2s ease;
-  }
-  
-  .navbar .link:hover {
-    color: #e2e8f0; /* hover:text-gray-400 */
-  }
-  
-  /* Active link styles */
-  .navbar .link.active {
-    color: #edf2f7; /* text-gray-300 */
-    font-weight: bold;
-    border-bottom: 2px solid #edf2f7; /* underline effect */
-  }
-  
-  /* Mobile menu toggle button */
-  .navbar .mobile-menu {
+
+  .link.active::after {
     display: none;
   }
-  
-  /* Responsive styling */
-  @media (max-width: 768px) {
-    /* Show mobile menu on smaller screens */
-    .navbar .links {
-      display: none; /* hidden md:flex */
-    }
-  
-    .navbar .mobile-menu {
-      display: block;
-    }
+
+  .mobile-menu {
+    display: block;
   }
-  
+}
+
+/* Animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.links.active {
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Focus states for accessibility */
+.link:focus,
+button.link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}

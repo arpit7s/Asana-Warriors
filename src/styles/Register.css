@@ -1,94 +1,186 @@
-/* Register container */
+/* Main container styling with gradient background */
 .register-container {
-  width: 100%;
-  max-width: 400px;
-  padding: 2rem;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background element */
+.register-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #4a90e2, #63b3ed, #4c51bf);
+}
+
+/* Header styling */
+.register-container h2 {
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+  color: #2d3748;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.register-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+/* Form groups */
+form div {
+  margin-bottom: 24px;
+  position: relative;
 }
 
-/* Title styling */
-h2 {
-  font-size: 2rem;
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 1.5rem;
+  color: #4a5568;
+  font-size: 15px;
+  transition: all 0.2s;
 }
 
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Input styling */
+/* Input field styling */
 input {
-  padding: 14px;
-  border: 1px solid #ddd;
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
+  font-size: 16px;
   transition: all 0.3s ease;
+  background-color: #f7fafc;
 }
 
 input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  background-color: #fff;
+}
+
+/* Placeholder text */
+input::placeholder {
+  color: #a0aec0;
+  font-size: 14px;
 }
 
 /* Button styling */
 button {
+  width: 100%;
   padding: 14px;
-  background-color: #007bff;
+  background: linear-gradient(90deg, #4a90e2, #5a67d8);
   color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
   border: none;
   border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(74, 144, 226, 0.2);
+  letter-spacing: 0.5px;
 }
 
 button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  background: linear-gradient(90deg, #3a7bc8, #4c51bf);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(74, 144, 226, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 button:disabled {
-  background-color: #ccc;
+  background: linear-gradient(90deg, #a5c6f3, #b2b7ff);
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Error message styling */
-p {
-  color: #ff4d4f;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-  font-weight: 500;
+p[style*="color: red"] {
+  background-color: #fff5f5;
+  color: #e53e3e !important;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border-left: 4px solid #e53e3e;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
+/* Loading indicator for button */
+button:disabled::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Additional elements for UX */
+.input-icon {
+  position: absolute;
+  right: 12px;
+  top: 42px;
+  color: #a0aec0;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
   .register-container {
-    padding: 1.5rem;
-    width: 90%;
+    max-width: 100%;
+    margin: 30px 20px;
+    padding: 30px 20px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .register-container {
+    background: #1a202c;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   }
 
-  h2 {
-    font-size: 1.6rem;
+  .register-container h2 {
+    color: #e2e8f0;
   }
 
-  input, button {
-    font-size: 1rem;
+  label {
+    color: #e2e8f0;
+  }
+
+  input {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  input:focus {
+    background-color: #2d3748;
+  }
+
+  input::placeholder {
+    color: #718096;
+  }
+
+  p[style*="color: red"] {
+    background-color: rgba(229, 62, 62, 0.1);
   }
 }
