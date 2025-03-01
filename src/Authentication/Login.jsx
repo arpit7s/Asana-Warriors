@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
+import { AuthContext } from './AuthContext/Authcontext';
 
-export const Login = () => {
+export const Login = ({username}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [user, setUser] = useState(null);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  
+  //context
+  const{ userName } = useContext(AuthContext)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -50,7 +54,7 @@ export const Login = () => {
     return (
       <div className="login-container">
         <div className="login-form">
-          <h2>Welcome, {user.email}!</h2>
+          <h2>Welcome, {userName}!</h2>
           <p>You are logged in.</p>
           <button onClick={handleLogout}>Logout</button>
         </div>

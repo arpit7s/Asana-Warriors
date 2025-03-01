@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css'
+import { AuthContext } from './AuthContext/Authcontext';
+
 
 export const Register = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +14,8 @@ export const Register = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   
+  //context
+  const { setUserName } = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -33,6 +37,7 @@ export const Register = () => {
 
       setLoading(false);
       setError('');
+      setUserName(username)
       alert("User registered successfully!");
       
       navigate('/');
