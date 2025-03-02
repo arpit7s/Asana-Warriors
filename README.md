@@ -12,8 +12,11 @@ Yoga Studio is a community-driven web application built with **React** and **Vit
 - **Community Sharing**: Users can share their yoga progress with others
 - **Responsive Design**: The app is fully responsive and works on both desktop and mobile devices
 
+## Github Repo Link
+https://github.com/arpit7s/Asana-Warriors
+
 ## Deployed Link
-[Live Demo](link here)
+https://asana-warriors.netlify.app/
 
 ## Tech Stack
 
