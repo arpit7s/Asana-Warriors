@@ -1,0 +1,315 @@
+/* Base and Container Styles */
+.light-container,
+.dark-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.light-container {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.dark-container {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Header Styles */
+.header,
+.dark-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.header {
+    color: #3a7bd5;
+}
+
+.dark-header {
+    color: #00bcd4;
+}
+
+/* Form Styles */
+.form-container,
+.dark-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in;
+}
+
+.dark-form {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea,
+.dark-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-input,
+.form-textarea {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #3a7bd5;
+    box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.2);
+    outline: none;
+}
+
+.dark-input {
+    border: 1px solid #444;
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.dark-input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+    outline: none;
+}
+
+.form-textarea,
+.dark-input.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.dark-primary-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.primary-button {
+    background-color: #3a7bd5;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #2a6ac5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-primary-button {
+    background-color: #00bcd4;
+    color: #333;
+}
+
+.dark-primary-button:hover {
+    background-color: #00acc1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-button {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.secondary-button:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+}
+
+.danger-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.danger-button:hover {
+    background-color: #e53935;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.2);
+}
+
+/* Yoga Grid and Card Styles */
+.yoga-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Changed to exactly 2 columns */
+    gap: 2rem;
+}
+
+.yoga-card,
+.dark-yoga-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.yoga-card {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.yoga-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dark-yoga-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-yoga-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.yoga-image,
+.dark-yoga-image {
+    width: 100%;
+    height: 250px;
+    /* Increased height for better display with 2 per row */
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.5s;
+}
+
+.dark-yoga-image {
+    border-bottom: 1px solid #444;
+}
+
+.yoga-card:hover .yoga-image,
+.dark-yoga-card:hover .dark-yoga-image {
+    transform: scale(1.05);
+}
+
+.yoga-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.yoga-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.dark-yoga-card .yoga-title {
+    color: #f0f0f0;
+}
+
+.yoga-description,
+.dark-yoga-description {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.yoga-description {
+    color: #666;
+}
+
+.dark-yoga-description {
+    color: #aaa;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .yoga-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep 2 columns on tablet */
+        gap: 1.5rem;
+    }
+
+    .form-container,
+    .dark-form {
+        padding: 1.5rem;
+    }
+
+    .header,
+    .dark-header {
+        font-size: 2rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button-container button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .light-container,
+    .dark-container {
+        padding: 1rem;
+    }
+
+    .yoga-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+    }
+}

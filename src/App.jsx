@@ -13,6 +13,7 @@ import AddYoga from "./components/addYoga/AddYoga";
 import ErrorPage from "./pages/ErrorPage";
 import { ThemeProvider } from "./context/ThemeContext";
 
+
 function App() {
   return (
     <ThemeProvider>

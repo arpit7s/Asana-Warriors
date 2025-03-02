@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThemeContext } from "../../context/ThemeContext";
 
+
 // Firebase Realtime Database API URL
 const API_URL =
   "https://hackt-6c946-default-rtdb.asia-southeast1.firebasedatabase.app/yogas.json";
 
 const AddYoga = () => {
+
+
   const navigate = useNavigate();
 
   // Form State
