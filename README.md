@@ -13,7 +13,7 @@ Yoga Studio is a community-driven web application built with **React** and **Vit
 - **Responsive Design**: The app is fully responsive and works on both desktop and mobile devices
 
 ## Deployed Link
-[Live Demo](https://your-deployment-link-here.com)
+[Live Demo](link here)
 
 ## Tech Stack
 
@@ -120,9 +120,6 @@ To run this project locally, you need to have the following tools installed:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
